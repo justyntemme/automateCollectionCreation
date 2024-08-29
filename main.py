@@ -85,7 +85,7 @@ def main():
 
     for i in range(0, len(hosts), BATCH_SIZE):
         batch_hosts = hosts[i : i + BATCH_SIZE]
-        collection_name = f"defenderupdatecollection{i // BATCH_SIZE + 1}"
+        collection_name = f"defender-update-collection-{i // BATCH_SIZE + 1}"
         response_code, response_text = create_collection(
             cwp_token, collection_name, batch_hosts
         )
