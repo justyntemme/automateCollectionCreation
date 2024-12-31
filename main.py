@@ -11,7 +11,9 @@ logging.basicConfig(level=logging.INFO)
 n = None  # To shorten line lengths
 HOSTS_FILE = "hosts.txt"
 BATCH_SIZE = 1000
-
+#sandbox
+TL_URL = "https://us-east1.cloud.twistlock.com/us-2-158320372"
+#TL_URL = "https://us-west1.cloud.twistlock.com/us-3-159241910"
 
 def create_collection(
     token: str, collection_name: str, hosts: List[str]
@@ -24,7 +26,7 @@ def create_collection(
     }
     payload = {"name": collection_name, "hosts": hosts}
     response = requests.post(
-        collection_url, headers=headers, json=payload, timeout=60, verify=False
+        collection_url, headers=headers, json=payload, timeout=60, verify=True
     )
     return response.status_code, response.text
 
